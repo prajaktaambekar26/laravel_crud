@@ -65,15 +65,7 @@ class StudentController extends Controller
 
         // dd($data['email']);
 
-        $details =[
-            
-            'title'=>'Mail form Shreya',
-            'body'=>'Thank You For Registration!'
-        ];
-
-        // dd($details);
-
-        mail::to($data['email'])->send(new welcomeEmail($details));
+       
 
         return redirect()->route('student.index')->with('status','Student Created.');
 
