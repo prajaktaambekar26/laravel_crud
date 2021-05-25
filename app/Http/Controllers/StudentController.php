@@ -6,6 +6,10 @@ use App\Models\Student;
 use App\Mail\welcomeEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Event;
+use App\Events\SendMail;
+
+
 
 
 class StudentController extends Controller
@@ -44,8 +48,8 @@ class StudentController extends Controller
         $data= request()->validate([
             'name'=>'required',
             'address'=>'required',
-            'mobile_no' => 'required|min:11|numeric',
-            'email' => 'email:rfc,dns',
+            'mobile_no' => 'required',
+            'email' => 'required',
             'gender' => 'required',
             'education' => 'required',
         ]);
@@ -64,6 +68,7 @@ class StudentController extends Controller
         ]);
 
         // dd($data['email']);
+        event(new SendMail($data));
 
        
 
