@@ -10,7 +10,7 @@
       <div class="col-xl-12">
         <div class="card mb-4">
           <div class="card-body">
-              @if (session('status'))
+            @if (session('status'))
             <div class="alert alert-success">
               {{ session('status') }}
             </div>
@@ -44,7 +44,7 @@
                 <label>Address</label>
                 <input type="text" class="form-control" name="address" placeholder="Enter Address" value="{{ old('name') }}">
 
-                 @error('address')
+                @error('address')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
               </div>

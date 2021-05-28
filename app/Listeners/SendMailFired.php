@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\welcomeEmail;
 
 
-class SendMailFired
+class SendMailFired implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -29,6 +29,8 @@ class SendMailFired
      */
     public function handle(SendMail $event)
     {
+
+        sleep(10);
         $details =[
             
             'title'=>'Mail form Shreya',
